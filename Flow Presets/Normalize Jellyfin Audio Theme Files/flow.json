@@ -1,0 +1,530 @@
+{
+  "_id": "UNhH8CusH",
+  "name": "😎 Big Flubba's Normalize Jellyfin Audio Theme Files 😎",
+  "description": "😎 Big Flubba's Normalize Jellyfin Audio Theme Files 😎",
+  "tags": "",
+  "flowPlugins": [
+    {
+      "name": "⚠️ Setting original date & time failed! Skipping! ⚠️",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "sdqDxIxug",
+      "position": {
+        "x": 1332,
+        "y": -36
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Reset Flow Error",
+      "sourceRepo": "Community",
+      "pluginName": "resetFlowError",
+      "version": "1.0.0",
+      "id": "Rva3dWs4o",
+      "position": {
+        "x": 1332,
+        "y": -60
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "🚨 Normalization failed! 🚨",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "wOKslbHL5",
+      "position": {
+        "x": 1332,
+        "y": -132
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Reset Flow Error",
+      "sourceRepo": "Community",
+      "pluginName": "resetFlowError",
+      "version": "1.0.0",
+      "id": "RIwc4eshJ",
+      "position": {
+        "x": 1332,
+        "y": -156
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "🚨 File transfer failed! 🚨",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "z6Zv2uvcy",
+      "position": {
+        "x": 1332,
+        "y": 24
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Remove images",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "8OSD8K-v7",
+      "position": {
+        "x": 1176,
+        "y": -84
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_MC93_MigzImageRemoval"
+      }
+    },
+    {
+      "name": "Remove data streams",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "fjSAq54bt",
+      "position": {
+        "x": 1176,
+        "y": -108
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_vdka_Remove_DataStreams"
+      }
+    },
+    {
+      "name": "Input File",
+      "sourceRepo": "Community",
+      "pluginName": "inputFile",
+      "version": "1.0.0",
+      "id": "osCVaRTit",
+      "position": {
+        "x": 1176,
+        "y": -516
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "fileAccessChecks": "true"
+      }
+    },
+    {
+      "name": "Normalize audio to 0dB",
+      "sourceRepo": "Community",
+      "pluginName": "normalizeAudio",
+      "version": "1.0.1",
+      "id": "IUP6d35d1",
+      "position": {
+        "x": 1176,
+        "y": -156
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "i": "-12.0",
+        "tp": "-0.1",
+        "maxGain": "20"
+      }
+    },
+    {
+      "name": "Change volume by '-18dB'",
+      "sourceRepo": "Community",
+      "pluginName": "runCli",
+      "version": "1.0.0",
+      "id": "k1pHoRLNT",
+      "position": {
+        "x": 1176,
+        "y": -132
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "userCli": "ffmpeg",
+        "cliArguments": "-i \"{{{args.inputFileObj._id}}}\" -af \"volume=-18dB\" \"${outputFilePath}\""
+      }
+    },
+    {
+      "name": "Check if file is a 'theme' audio file",
+      "sourceRepo": "Community",
+      "pluginName": "checkFileExists",
+      "version": "1.0.0",
+      "id": "aFKlGDBVZ",
+      "position": {
+        "x": 1176,
+        "y": -228
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "fileToCheck": "theme.mp3"
+      }
+    },
+    {
+      "name": "Add original file to processed (file hash)",
+      "sourceRepo": "Community",
+      "pluginName": "processedAdd",
+      "version": "1.0.0",
+      "id": "u-bQXJ3fb",
+      "position": {
+        "x": 1176,
+        "y": -36
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "checkType": "fileHash"
+      }
+    },
+    {
+      "name": "Check if already processed (file hash)",
+      "sourceRepo": "Community",
+      "pluginName": "processedCheck",
+      "version": "1.0.0",
+      "id": "iV3_NoXYc",
+      "position": {
+        "x": 1092,
+        "y": -192
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "checkType": "fileHash"
+      }
+    },
+    {
+      "name": "⚠️ File has already been processed! Skipping! ⚠️",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "LDoDxHrbM",
+      "position": {
+        "x": 1008,
+        "y": -156
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Keep original date & time",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "Val8UzhYk",
+      "position": {
+        "x": 1176,
+        "y": -60
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_z80t_keep_original_date",
+        "log": "true"
+      }
+    },
+    {
+      "name": "Replace original file",
+      "sourceRepo": "Community",
+      "pluginName": "replaceOriginalFile",
+      "version": "1.0.0",
+      "id": "eZnNIzePv",
+      "position": {
+        "x": 1176,
+        "y": 0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "ℹ️ This flow will process any Jellyfin audio theme file you throw at it to normalize it to a comfortable listening level. ℹ️",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "Dk9BSctvU",
+      "position": {
+        "x": 1176,
+        "y": -432
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "ℹ️ Version: 0.1 ℹ️",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "OBNZoWwEb",
+      "position": {
+        "x": 1176,
+        "y": -252
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "🔗 https://github.com/BigFlubba/Tdarr-Megaflows/Flow%20Presets/Normalize%20Jellyfin%20Audio%20Theme%20Files 🔗",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "D-n-hqsgw",
+      "position": {
+        "x": 1176,
+        "y": -348
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "😎 Big Flubba's Normalize Jellyfin Audio Theme Files 😎",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "UfCwWYXI9",
+      "position": {
+        "x": 1176,
+        "y": -492
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "⚠️ Not a theme file! Skipping! ⚠️",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "EH8q3l3h8",
+      "position": {
+        "x": 1260,
+        "y": -192
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "On Flow Error",
+      "sourceRepo": "Community",
+      "pluginName": "onFlowError",
+      "version": "1.0.0",
+      "id": "bmSVqo94T",
+      "position": {
+        "x": 1500,
+        "y": 72
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Fail Flow",
+      "sourceRepo": "Community",
+      "pluginName": "failFlow",
+      "version": "1.0.0",
+      "id": "z45eswvos",
+      "position": {
+        "x": 1500,
+        "y": 156
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "🚨 The flow has failed! Please check the logs! 😭 🚨",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "ECAGAHU7c",
+      "position": {
+        "x": 1500,
+        "y": 96
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Reset Flow Error",
+      "sourceRepo": "Community",
+      "pluginName": "resetFlowError",
+      "version": "1.0.0",
+      "id": "rl3z0u2bi",
+      "position": {
+        "x": 1332,
+        "y": 0
+      },
+      "fpEnabled": true
+    }
+  ],
+  "flowEdges": [
+    {
+      "source": "IUP6d35d1",
+      "sourceHandle": "1",
+      "target": "k1pHoRLNT",
+      "targetHandle": null,
+      "id": "9U9fecFyN"
+    },
+    {
+      "source": "k1pHoRLNT",
+      "sourceHandle": "1",
+      "target": "fjSAq54bt",
+      "targetHandle": null,
+      "id": "XVBEMCJDb"
+    },
+    {
+      "source": "fjSAq54bt",
+      "sourceHandle": "1",
+      "target": "8OSD8K-v7",
+      "targetHandle": null,
+      "id": "mOVMknSwI"
+    },
+    {
+      "source": "aFKlGDBVZ",
+      "sourceHandle": "1",
+      "target": "iV3_NoXYc",
+      "targetHandle": null,
+      "id": "n4MuvFSIh"
+    },
+    {
+      "source": "iV3_NoXYc",
+      "sourceHandle": "1",
+      "target": "LDoDxHrbM",
+      "targetHandle": null,
+      "id": "f2TgVfeXH"
+    },
+    {
+      "source": "8OSD8K-v7",
+      "sourceHandle": "1",
+      "target": "Val8UzhYk",
+      "targetHandle": null,
+      "id": "iss6xZlOI"
+    },
+    {
+      "source": "Val8UzhYk",
+      "sourceHandle": "1",
+      "target": "u-bQXJ3fb",
+      "targetHandle": null,
+      "id": "kbjlxkv7A"
+    },
+    {
+      "source": "u-bQXJ3fb",
+      "sourceHandle": "1",
+      "target": "eZnNIzePv",
+      "targetHandle": null,
+      "id": "bi4i8pXPW"
+    },
+    {
+      "source": "iV3_NoXYc",
+      "sourceHandle": "2",
+      "target": "IUP6d35d1",
+      "targetHandle": null,
+      "id": "-W7FBtgY-"
+    },
+    {
+      "source": "D-n-hqsgw",
+      "sourceHandle": "1",
+      "target": "OBNZoWwEb",
+      "targetHandle": null,
+      "id": "eAYm5fMUg"
+    },
+    {
+      "source": "osCVaRTit",
+      "sourceHandle": "1",
+      "target": "UfCwWYXI9",
+      "targetHandle": null,
+      "id": "mdcoE9eeD"
+    },
+    {
+      "source": "UfCwWYXI9",
+      "sourceHandle": "1",
+      "target": "Dk9BSctvU",
+      "targetHandle": null,
+      "id": "n1IMZrIJ-"
+    },
+    {
+      "source": "Dk9BSctvU",
+      "sourceHandle": "1",
+      "target": "D-n-hqsgw",
+      "targetHandle": null,
+      "id": "tFLY6H6TA"
+    },
+    {
+      "source": "OBNZoWwEb",
+      "sourceHandle": "1",
+      "target": "aFKlGDBVZ",
+      "targetHandle": null,
+      "id": "uf0f07oyy"
+    },
+    {
+      "source": "aFKlGDBVZ",
+      "sourceHandle": "2",
+      "target": "EH8q3l3h8",
+      "targetHandle": null,
+      "id": "D6JwoiQNm"
+    },
+    {
+      "source": "bmSVqo94T",
+      "sourceHandle": "1",
+      "target": "ECAGAHU7c",
+      "targetHandle": null,
+      "id": "t6avcG2YR"
+    },
+    {
+      "source": "ECAGAHU7c",
+      "sourceHandle": "1",
+      "target": "z45eswvos",
+      "targetHandle": null,
+      "id": "69NGR6jIN"
+    },
+    {
+      "source": "rl3z0u2bi",
+      "sourceHandle": "1",
+      "target": "z6Zv2uvcy",
+      "targetHandle": null,
+      "id": "TN4_nYFuC"
+    },
+    {
+      "source": "eZnNIzePv",
+      "sourceHandle": "err1",
+      "target": "rl3z0u2bi",
+      "targetHandle": null,
+      "id": "pTfdR37Id"
+    },
+    {
+      "source": "IUP6d35d1",
+      "sourceHandle": "err1",
+      "target": "RIwc4eshJ",
+      "targetHandle": null,
+      "id": "V5aH64AyA"
+    },
+    {
+      "source": "RIwc4eshJ",
+      "sourceHandle": "1",
+      "target": "wOKslbHL5",
+      "targetHandle": null,
+      "id": "Dv70S4Zr0"
+    },
+    {
+      "source": "wOKslbHL5",
+      "sourceHandle": "1",
+      "target": "ECAGAHU7c",
+      "targetHandle": null,
+      "id": "W0BCe0dEW"
+    },
+    {
+      "source": "z6Zv2uvcy",
+      "sourceHandle": "1",
+      "target": "ECAGAHU7c",
+      "targetHandle": null,
+      "id": "CZKd7CozC"
+    },
+    {
+      "source": "k1pHoRLNT",
+      "sourceHandle": "err1",
+      "target": "RIwc4eshJ",
+      "targetHandle": null,
+      "id": "F7tUa4_ak"
+    },
+    {
+      "source": "Val8UzhYk",
+      "sourceHandle": "err1",
+      "target": "Rva3dWs4o",
+      "targetHandle": null,
+      "id": "DdChD2jh6"
+    },
+    {
+      "source": "Rva3dWs4o",
+      "sourceHandle": "1",
+      "target": "sdqDxIxug",
+      "targetHandle": null,
+      "id": "fPHFkB-DV"
+    },
+    {
+      "source": "sdqDxIxug",
+      "sourceHandle": "1",
+      "target": "u-bQXJ3fb",
+      "targetHandle": null,
+      "id": "e4Hlfr1-U"
+    }
+  ]
+}
