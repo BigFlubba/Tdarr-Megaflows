@@ -4,6 +4,10 @@
 
 This flow will process any Jellyfin audio theme file you throw at it to normalize it to a comfortable listening level.
 
+### Screenshot
+
+<img width="984" height="1064" alt="image" src="https://github.com/user-attachments/assets/0d2c6a8c-1930-4e98-b8a3-a4c28299a59c" />
+
 ### Setup
 
 > [!IMPORTANT]
